@@ -42,15 +42,22 @@ export class FeaturedComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    this.resortProposal();
     this.getAllDestinations();
     this.getAllSeasons();
     this.getAllLocations();
   }
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    this.resortProposal();
+  }
 
   resortProposal() {
-    document.getElementById(String(0)).classList.add("active");
+    this.seasonElements.forEach((e) => {
+      if (e.nativeElement.id == 0) {
+        e.nativeElement.classList.add("active");
+      } else {
+        e.nativeElement.classList.remove("active");
+      }
+    });
   }
 
   activate(id) {

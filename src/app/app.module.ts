@@ -18,12 +18,7 @@ import { UserInfoComponent } from "./core/user-info/user-info.component";
 import { AdmindashboardModule } from "./admindashboard/admindashboard.module";
 import { PaginationModule } from "./pagination/pagination.module";
 import { BackroadsModule } from "./backroads/backroads.module";
-// import { AdmindashboardComponent } from "./core/admindashboard/admindashboard.component";
-// import { DestinationComponent } from "./core/admindashboard/destination/destination.component";
-// import { LocationComponent } from "./core/admindashboard/location/location.component";
-// import { UserComponent } from "./core/admindashboard/user/user.component";
-// import { FormComponent } from "./core/admindashboard/destination/form/form.component";
-// import { LocaFormComponent } from './core/admindashboard/location/loca-form/loca-form.component';
+
 
 @NgModule({
   declarations: [

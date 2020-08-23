@@ -1,0 +1,55 @@
+
+$colors:(
+    primaryColor:#3fd0d4,
+    mainWhite:#fff,
+    offWhite:#f7f7f7,
+    mainBlack:#222,
+    mainGrey:#ececec,
+    darkGrey:#afafaf
+);
+$mainTransition:all 0.3s linear;
+$mainSpacing:0.25rem;
+$lightShadow:2px 5px 3px 0 rgba(0,0,0,.25);    
+$darkShadow:2px 5px 3px 0 rgba(0,0,0,.5);    
+@function color($color-name){
+    @return map-get($colors,$color-name);
+}
+.footer {
+  background: color(mainBlack);
+  color: color(mainWhite);
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.footer-links,
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-link {
+  color: color(mainWhite);
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  letter-spacing: $mainSpacing;
+  transition: $mainTransition;
+}
+.footer-link:hover {
+  color: color(primaryColor);
+}
+.footer-icon {
+  font-size: 1.9rem;
+  margin-right: 1rem;
+  color: color(mainWhite);
+  transition: $mainTransition;
+}
+.footer-icon:hover {
+  color: color(primaryColor);
+  transform: translateY(-10%);
+}
+.copyright {
+  text-transform: capitalize;
+  letter-spacing: $mainSpacing;
+}

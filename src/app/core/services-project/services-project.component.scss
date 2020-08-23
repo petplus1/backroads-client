@@ -1,0 +1,79 @@
+
+$colors:(
+  primaryColor:#3fd0d4,
+  mainWhite:#fff,
+  offWhite:#f7f7f7,
+  mainBlack:#222,
+  mainGrey:#ececec,
+  darkGrey:#afafaf
+);
+$mainTransition:all 0.3s linear;
+$mainSpacing:0.25rem;
+$lightShadow:2px 5px 3px 0 rgba(0,0,0,.25);    
+$darkShadow:2px 5px 3px 0 rgba(0,0,0,.5);    
+@function color($color-name){
+  @return map-get($colors,$color-name);
+}
+.service {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .service-icon {
+    background: color(primaryColor);
+    padding: 0.5rem;
+    display: inline-block;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .service-title {
+    text-transform: uppercase;
+  }
+  .service-text {
+    width: 80%;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+.services{
+  // border-top: 1px solid #222;
+  background-color: color(mainWhite);
+}
+  @media screen and (min-width: 576px) {
+    .services-center {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      justify-content: space-between;
+    }
+    .service {
+
+      flex: 0 0 calc(50% - 1rem);
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .service {
+
+      flex: 0 0 calc(33.3333% - 1rem);
+    }
+  }
+  @media screen and (min-width: 1170px) {
+    .service {
+
+      display: flex;
+      text-align: left;
+    }
+    .service-icon {
+
+      align-self: start;
+    }
+    .service-info {
+      padding-left: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .service-text {
+      width: 90%;
+      margin: 0;
+    }
+    
+  }

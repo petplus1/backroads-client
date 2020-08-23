@@ -1,0 +1,29 @@
+<form style="margin-top: 10px;">
+  <div class="form-group form-row">
+    <label for="name" class="col-form-label col-sm-2">Name:</label>
+    <input
+      type="text"
+      class="form-control col-sm-10"
+      id="name"
+      name="name"
+      [(ngModel)]="location.name"
+    />
+  </div>
+
+  <button
+    *ngIf="forEdit != undefined"
+    type="submit"
+    class="btn btn-primary float-right"
+    (click)="editLocation()"
+  >
+    Edit
+  </button>
+  <button
+    *ngIf="forEdit == undefined"
+    type="submit"
+    class="btn btn-primary float-right"
+    (click)="saveLocation()"
+  >
+    Save
+  </button>
+</form>

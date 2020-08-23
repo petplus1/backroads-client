@@ -1,0 +1,22 @@
+.pag-cont {
+  display: flex;
+  justify-content: space-around;
+}
+.newDest {
+  border-radius: 10px;
+  border: none;
+  width: 200px;
+  background-color: #0f0;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.search {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.pointer {
+  cursor: pointer;
+}

@@ -1,0 +1,15 @@
+<ul>
+  <li *ngIf="activePage > 1" (click)="pageSelected(activePage - +1)">
+    <a>Prew</a>
+  </li>
+  <li
+    *ngFor="let i of pages"
+    (click)="pageSelected(i)"
+    [ngClass]="{ active: activePage == i }"
+  >
+    <a>{{ i }}</a>
+  </li>
+  <li *ngIf="activePage < getNoPage()" (click)="pageSelected(activePage + 1)">
+    <a>Next</a>
+  </li>
+</ul>

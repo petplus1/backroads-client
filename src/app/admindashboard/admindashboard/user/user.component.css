@@ -1,0 +1,13 @@
+.pag-cont {
+  display: flex;
+  justify-content: space-around;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.pointer {
+  cursor: pointer;
+}

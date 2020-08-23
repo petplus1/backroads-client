@@ -1,0 +1,69 @@
+<div class="list-cont">
+  <div class="search">
+    <div>
+      <div *ngIf="toggle">
+        <label for="name"><i class="fas fa-search"></i>Name:</label>
+        <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+      </div>
+    </div>
+    <div>
+      <button class="newDest" (click)="newLoca()" *ngIf="toggle">
+        New Location
+      </button>
+      <button class="newDest" (click)="back()" *ngIf="!toggle">
+        List Locations
+      </button>
+    </div>
+  </div>
+  <table *ngIf="toggle" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Index</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="listLoca != undefined">
+      <tr *ngFor="let l of listLoca.locations">
+        <th>{{ l._id }}</th>
+        <td>{{ l.name }}</td>
+        <td>{{ l.ind_search }}</td>
+        <td>
+          <a class="pointer" (click)="editLoca(l)"
+            ><i class="fas fa-pencil-alt"></i
+          ></a>
+        </td>
+        <td>
+          <a class="pointer" style="color: red;" (click)="deleteLoca(l._id)"
+            ><i class="fas fa-times"></i
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="toggle">
+    <div class="pag-cont" *ngIf="listLoca != undefined">
+      <backroads-pagination
+        [pageSize]="10"
+        [totalItems]="listLoca.totalElements"
+        (newPage)="newPageEmit($event)"
+      ></backroads-pagination>
+    </div>
+  </div>
+</div>
+<div class="form-cont" *ngIf="!toggle">
+  <!-- <dest-form
+    [loca]="getLocations"
+    [forEdit]="destForEdit"
+    [seas]="getSeasons"
+    (destinaToSave)="saveDestination($event)"
+    (destinaToEdit)="editDestination($event)"
+  ></dest-form> -->
+  <backroads-loca-form
+    [forEdit]="locationToEdit"
+    (locationToSave)="saveLocation($event)"
+    (locationToEdit)="editLocation($event)"
+  ></backroads-loca-form>
+</div>

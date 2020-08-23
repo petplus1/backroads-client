@@ -1,0 +1,169 @@
+<header id="home">
+  <div class="hero">
+    <div class="hero-banner">
+      <h1 class="hero-title">continue exploring</h1>
+      <p class="hero-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+        eveniet sit repudiandae.
+      </p>
+      <a class="btn-white scroll-link" (click)="smothScroll($event)"
+        >explore tours</a
+      >
+    </div>
+  </div>
+</header>
+<section class="section about" id="about">
+  <div class="title-wrapper">
+    <h2 class="title">about <span class="subtitle">us</span></h2>
+  </div>
+  <div class="about-center section-center">
+    <article class="about-img">
+      <img
+        src="./assets/images/about.jpeg"
+        class="about-photo"
+        alt="awesome beach"
+      />
+    </article>
+    <article class="about-info">
+      <h3>explore the difference</h3>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et ex corrupti
+        consequatur aut impedit. Labore minus expedita voluptates aut qui.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et ex corrupti
+        consequatur aut impedit. Labore minus expedita voluptates aut qui.
+      </p>
+      <a class="btn-primary" [routerLink]="['/about']">read more</a>
+    </article>
+  </div>
+</section>
+<section class="section services" id="services">
+  <div class="title-wrapper">
+    <h2 class="title">our <span class="subtitle">services</span></h2>
+  </div>
+  <div class="section-center services-center">
+    <article class="service">
+      <span class="service-icon">
+        <i class="far fa-money-bill-alt"></i>
+      </span>
+      <div class="service-info">
+        <h4 class="service-title">saving money</h4>
+        <p class="service-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+          deserunt?
+        </p>
+      </div>
+    </article>
+    <article class="service">
+      <span class="service-icon">
+        <i class="fas fa-tree fa-fw"></i>
+      </span>
+      <div class="service-info">
+        <h4 class="service-title">endless hiking</h4>
+        <p class="service-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+          deserunt?
+        </p>
+      </div>
+    </article>
+    <article class="service">
+      <span class="service-icon">
+        <i class="fas fa-bed"></i>
+      </span>
+      <div class="service-info">
+        <h4 class="service-title">amazing comfort</h4>
+        <p class="service-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+          deserunt?
+        </p>
+      </div>
+    </article>
+  </div>
+  <div class="link-wrapper">
+    <a class="btn-primary" [routerLink]="['/services']">read more</a>
+  </div>
+</section>
+
+<section class="section featured" id="featured">
+  <div class="title-wrapper">
+    <img
+      style="height: 150px; width: 150px;"
+      src="./assets/images/onSale.png"
+      alt="On Sale"
+    />
+    <h2 class="title">featured <span class="subtitle">tours</span></h2>
+    <img
+      style="height: 150px; width: 150px;"
+      src="./assets/images/onSale.png"
+      alt="On Sale"
+    />
+  </div>
+
+  <div
+    class="section-center featured-center"
+    *ngIf="listSearchDest != undefined"
+  >
+    <article
+      class="tour-card"
+      [routerLink]="['/featured', d._id]"
+      *ngFor="let d of listSearchDest.destinations"
+    >
+      <div class="tour-img-container">
+        <img
+          src="{{ d.picture + '.jpg' }}"
+          class="tour-img"
+          alt="awesome tour"
+          style="height: 200px;"
+        />
+        <p class="tour-date">{{ d.from | date }}</p>
+      </div>
+      <div class="tour-footer">
+        <h4 class="tour-title">{{ d.name }}</h4>
+        <div class="tour-info">
+          <p class="tour-country">
+            <span><i class="fas fa-map"></i></span>
+            {{ d.country }}
+          </p>
+          <div class="tour-details">
+            <p>{{ d.calculateDateDifference() }} days</p>
+            <p>from ${{ d.price }}</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="tour-link">
+    <a class="btn-primary" [routerLink]="['/featured']">all tours</a>
+  </div>
+</section>
+<section class="section gallery" id="gallery">
+  <div class="title-wrapper">
+    <h2 class="title">our <span class="subtitle">gallery</span></h2>
+  </div>
+  <div class="gallery-center">
+    <div class="gallery-img-container" *ngFor="let p of photos">
+      <img
+        src="{{ p.picture + '.jpg' }}"
+        class="gallery-img"
+        style="height: 30vh; width: 100%;"
+      />
+      <span class="gallery-icon" [routerLink]="['/featured', p._id]">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+  </div>
+</section>
+
+<section class="section deals" id="deals">
+  <div class="title-wrapper">
+    <h2 class="title">hot <span class="subtitle">deals</span></h2>
+  </div>
+  <form>
+    <div class="input-group">
+      <input type="email" class="form-control" placeholder="your email" />
+      <button type="submit" class="btn-submit">submit</button>
+    </div>
+  </form>
+</section>

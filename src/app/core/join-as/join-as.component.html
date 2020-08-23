@@ -1,0 +1,34 @@
+<section class="section about" id="about">
+  <div class="title-wrapper">
+    <h2 class="title">Join <span class="subtitle">us</span></h2>
+  </div>
+  <div class="about-center section-center">
+    <article class="about-img">
+      <img
+        src="./assets/images/about.jpeg"
+        class="about-photo"
+        alt="awesome beach"
+      />
+    </article>
+    <article class="about-info">
+      <div class="about-resort">
+        <ul>
+          <li #regElem><h3>Register</h3></li>
+          <li #logElem><h3>Log in</h3></li>
+        </ul>
+      </div>
+      <div *ngIf="register">
+        <backorads-register
+          [succesReg]="sucReg"
+          (newUser)="saveUser($event)"
+        ></backorads-register>
+      </div>
+      <div *ngIf="!register">
+        <backorads-log-in
+          [invalidLogin]="succesLogIn"
+          (loginUser)="logIn($event)"
+        ></backorads-log-in>
+      </div>
+    </article>
+  </div>
+</section>

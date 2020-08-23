@@ -1,0 +1,331 @@
+
+
+$colors:(
+    primaryColor:#3fd0d4,
+    mainWhite:#fff,
+    offWhite:#f7f7f7,
+    mainBlack:#222,
+    mainGrey:#ececec,
+    darkGrey:#afafaf
+);
+$mainTransition:all 0.3s linear;
+$mainSpacing:0.25rem;
+$lightShadow:2px 5px 3px 0 rgba(0,0,0,.25);    
+$darkShadow:2px 5px 3px 0 rgba(0,0,0,.5);    
+@function color($color-name){
+    @return map-get($colors,$color-name);
+}
+.hero{
+    min-height: 100vh;
+    background: color(primaryColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .hero-banner{
+        text-align: center;
+        color: color(mainWhite);
+        padding: 0.2rem;
+        .hero-title{
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            letter-spacing: 0.4rem;
+        }
+        .hero-text{
+            width: 95%;
+            margin:0 auto;
+            letter-spacing: $mainSpacing;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    .hero {
+      background:linear-gradient(rgba(63,208,212,0.7),rgba(0,0,0,0.7    )), url("/assets/images/main.jpeg") center/cover no-repeat fixed;
+    }
+    .hero-title {
+      font-size: 4.5rem;
+    }
+    .hero-text {
+      width: 70%;
+    }
+  }
+
+  /*************** end of hero **********************/
+  /*************** about  **********************/
+  .about {
+    background: color(mainWhite);
+  }
+  /* section added to globals */
+  /* title added to globals */
+  /* section center added to globals */
+  .about-img,
+  .about-info {
+    margin-bottom: 4rem;
+  }
+  .about-info h3 {
+    text-transform: uppercase;
+  }
+  @media screen and (min-width: 992px) {
+    .about-center {
+      display: flex;
+      justify-content: space-between;
+    }
+    .about-img,
+    .about-info {
+      flex: 0 0 calc(50% - 2rem);
+      margin-bottom: 0;
+
+      align-self: center;
+    }
+  }
+  @media screen and (min-width: 1170px) {
+    .about-img::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 0.5rem solid color(primaryColor);
+      top: -1.5rem;
+      left: -1.5rem;
+    }
+    .about-img {
+      position: relative;
+    }
+    .about-photo {
+      position: relative;
+    }
+  }
+  /*************** end of about **********************/
+  /*************** services **********************/
+  .service {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .service-icon {
+    background: color(primaryColor);
+    padding: 0.5rem;
+    display: inline-block;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .service-title {
+    text-transform: uppercase;
+  }
+  .service-text {
+    width: 80%;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  .link-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  @media screen and (min-width: 576px) {
+    .services-center {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      justify-content: space-between;
+    }
+    .service {
+
+      flex: 0 0 calc(50% - 1rem);
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .service {
+
+      flex: 0 0 calc(33.3333% - 1rem);
+    }
+  }
+  @media screen and (min-width: 1170px) {
+    .service {
+
+      display: flex;
+      text-align: left;
+    }
+    .service-icon {
+
+      align-self: start;
+    }
+    .service-info {
+      padding-left: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .service-text {
+      width: 90%;
+      margin: 0;
+    }
+    
+  }
+  /*************** end of services **********************/
+  /*************** featured **********************/
+  .featured {
+    background: color(mainWhite);
+  }
+  .tour-card {
+    margin-bottom: 4rem;
+    box-shadow: $lightShadow;
+    transition: $mainTransition;
+    cursor: pointer;
+  }
+  .tour-card:hover {
+    box-shadow: $darkShadow;
+  }
+  .tour-img-container {
+    position: relative;
+  }
+  .tour-date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: color(primaryColor);
+    text-transform: capitalize;
+    padding: 0.25rem 0.5rem;
+  }
+  .tour-footer {
+    padding: 1.2rem 1.5rem;
+  }
+  .tour-title {
+    text-transform: capitalize;
+  }
+  .tour-country {
+    color: color(primaryColor);
+    text-transform: capitalize;
+  }
+  .tour-info {
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .tour-details p {
+    line-height: 0.2;
+    text-transform: capitalize;
+    color: color(darkGrey);
+    letter-spacing: 0.02rem;
+  }
+  .tour-country {
+    align-self: center;
+  }
+  .tour-link {
+    text-align: center;
+  }
+  @media screen and (min-width: 768px) {
+    .featured-center {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .tour-card {
+      flex: 0 0 calc(50% - 1rem);
+    }
+  }
+  @media screen and (min-width: 1170px) {
+    .tour-card {
+      flex: 0 0 calc(33.3333% - 1rem);
+    }
+  }
+  /*************** end of featured **********************/
+  /*************** gallery **********************/
+  .gallery {
+    background: color(darkGrey);
+  }
+  .gallery-img-container {
+    position: relative;
+    background: color(primaryColor);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+  }
+  .gallery-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2.5rem;
+    transform: translate(-50%, -50%);
+    color: color(mainWhite);
+    cursor: pointer;
+    transition: var(--mainTransition);
+    opacity: 0;
+  }
+  .gallery-img {
+    transition: $mainTransition;
+  }
+  .gallery-img-container:hover .gallery-img {
+    opacity: 0.5;
+  }
+  .gallery-img-container:hover .gallery-icon {
+    opacity: 1;
+  }
+  @media screen and (min-width: 768px) {
+    .gallery-center {
+
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .gallery-img-container {
+
+      flex: 0 0 50%;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .gallery-img-container {
+      flex: 0 0 25%;
+    }
+  }
+  /*************** end of gallery **********************/
+  /*************** deals **********************/
+  .input-group {
+    width: 80vw;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+  }
+  .form-control {
+    flex: 1 1 auto;
+  }
+  .form-control,
+  .btn-submit {
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 300;
+    letter-spacing: $mainSpacing;
+    background: transparent;
+    text-transform: uppercase;
+    outline: none;
+    border: 2px solid color(primaryColor);
+  }
+  ::-webkit-input-placeholder {
+    font-family: "Lato", sans-serif;
+    color: color(mainBlack);
+  }
+  :-ms-input-placeholder {
+    font-family: "Lato", sans-serif;
+    color: color(mainBlack);
+  }
+  ::-ms-input-placeholder {
+    font-family: "Lato", sans-serif;
+    color: color(mainBlack);
+  }
+  ::placeholder {
+    font-family: "Lato", sans-serif;
+    color: color(mainBlack);
+  }
+  .btn-submit {
+    border-left: none;
+    cursor: pointer;
+    -webkit-transition: $mainTransition;
+    transition: $mainTransition;
+  }
+  .btn-submit:hover {
+    color: color(mainWhite);
+    background: color(primaryColor);
+  }
+  /*************** end of deals **********************/
+ 

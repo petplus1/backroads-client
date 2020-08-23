@@ -1,0 +1,19 @@
+.active{
+    transform: scale(1.2);
+}
+ul{
+    display: flex;
+    list-style: none;
+    
+}
+ul li{
+    background-color: #3fd0d4;
+    color: #fff;
+    border: 1px solid rgb(71, 197, 255);
+    margin: 1px;
+    padding: 5px;
+}
+ul li a{
+    text-decoration: none;
+    cursor: pointer;
+}

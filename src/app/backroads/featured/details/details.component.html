@@ -1,0 +1,38 @@
+<section class="section about" id="about">
+  <div class="title-wrapper">
+    <h2 class="title">More <span class="subtitle">Details</span></h2>
+  </div>
+  <div *ngIf="destination != undefined" class="about-center section-center">
+    <article class="about-img">
+      <img
+        src="{{ destination.picture + '.jpg' }}"
+        class="about-photo"
+        alt="awesome beach"
+      />
+    </article>
+    <article class="about-info">
+      <h3 *ngIf="destination.name == destination.country">
+        {{ "Tour around " + destination.country }}
+      </h3>
+      <h3 *ngIf="destination.name != destination.country">
+        {{ destination.country + " , " + destination.name }}
+      </h3>
+      <p>From: {{ destination.from | date }} To: {{ destination.to | date }}</p>
+      <p>Price: {{ destination.price }}</p>
+      <p>Location: {{ destination.location.name }}</p>
+      <p>Season: {{ destination.season.name }}</p>
+      <p>
+        Details about destination <i class="fas fa-arrow-alt-circle-down"></i>
+      </p>
+    </article>
+  </div>
+  <div
+    *ngIf="destination != undefined"
+    class="about-center section-center article-description"
+  >
+    <p>{{ destination.description }}</p>
+  </div>
+  <div class="reservation-cont">
+    <a class="btn-primary" (click)="reserve()">Reservation</a>
+  </div>
+</section>

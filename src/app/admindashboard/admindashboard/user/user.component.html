@@ -1,0 +1,49 @@
+<div class="list-cont">
+  <div class="search">
+    <div>
+      <div>
+        <label for="name"><i class="fas fa-search"></i>Username:</label>
+        <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+      </div>
+    </div>
+    <div></div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="usList != undefined">
+      <tr *ngFor="let u of usList.users">
+        <th>{{ u._id }}</th>
+        <td>{{ u.name }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.email }}</td>
+        <td *ngIf="u.userAuthority[0].authority == 'ROLE_USER'">
+          <a class="pointer" style="color: red;" (click)="deleteLoca(u._id)"
+            ><i class="fas fa-times"></i
+          ></a>
+        </td>
+        <td *ngIf="u.userAuthority[0].authority == 'ROLE_ADMIN'">
+          <a class="pointer" style="color: greenyellow;" (click)="adminInfo(u)"
+            ><i class="fa fa-user-secret"></i
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <div class="pag-cont" *ngIf="usList != undefined">
+      <backroads-pagination
+        [pageSize]="10"
+        [totalItems]="usList.totalElements"
+        (newPage)="newPageEmit($event)"
+      ></backroads-pagination>
+    </div>
+  </div>
+</div>

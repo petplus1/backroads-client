@@ -1,0 +1,130 @@
+
+
+$colors:(
+  primaryColor:#3fd0d4,
+  mainWhite:#fff,
+  offWhite:#f7f7f7,
+  mainBlack:#222,
+  mainGrey:#ececec,
+  darkGrey:#afafaf
+);
+$mainTransition:all 0.3s linear;
+$mainSpacing:0.25rem;
+$lightShadow:2px 5px 3px 0 rgba(0,0,0,.25);    
+$darkShadow:2px 5px 3px 0 rgba(0,0,0,.5);    
+@function color($color-name){
+  @return map-get($colors,$color-name);
+}
+  
+  .featured {
+    background: color(mainWhite);
+  }
+  .tour-card {
+    margin-bottom: 4rem;
+    box-shadow: $lightShadow;
+    transition: $mainTransition;
+  }
+  .tour-card:hover {
+    box-shadow: $darkShadow;
+  }
+  
+  .tour-img-container {
+    position: relative;
+  }
+  .tour-date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: color(primaryColor)!important;
+    text-transform: capitalize;
+    padding: 0.25rem 0.5rem;
+  }
+  .tour-footer {
+    padding: 1.2rem 1.5rem;
+  }
+  .tour-title {
+    text-transform: capitalize;
+  }
+  .tour-country {
+    color: color(primaryColor);
+    text-transform: capitalize;
+  }
+  .tour-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .tour-details p {
+    line-height: 0.2;
+    text-transform: capitalize;
+    color: color(darkGrey);
+    letter-spacing: 0.02rem;
+  }
+  .tour-country {
+    align-self: center;
+  }
+  .tour-link {
+    text-align: center;
+  }
+  @media screen and (min-width: 768px) {
+    .featured-center {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .tour-card {
+      flex: 0 0 calc(50% - 1rem);
+    }
+  }
+  @media screen and (min-width: 1170px) {
+    .tour-card {
+      flex: 0 0 calc(33.3333% - 1rem);
+    }
+
+  }
+
+
+
+
+  .about-resort{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+.about-resort ul{
+    display: flex;
+    flex-wrap: wrap;
+    height: 8vh;
+    /* flex: 0 0 auto; */
+    padding: 0;
+    margin: 0;
+}
+.about-resort ul li{
+    flex: 0 0 20%;
+    list-style: none;
+    align-self: center;
+    height: 100%;
+}
+.about-resort ul li a{
+    display: block;
+    text-align: center;
+    line-height: 8vh;
+    text-decoration: none;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    height: 100%;
+    cursor: pointer;
+}
+.active{
+  border: 1px solid rgb(228, 228, 228);
+  border-bottom: none!important;
+}
+.sort-location{
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.paggination{
+  display: flex;
+  justify-content: space-around;
+}

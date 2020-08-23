@@ -1,0 +1,39 @@
+.about {
+  background: #fff;
+}
+
+/* section added to globals */
+/* title added to globals */
+/* section center added to globals */
+.about-img,
+.about-info {
+  margin-bottom: 4rem;
+}
+
+.about-info h3 {
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 992px) {
+  .about-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-evenly;
+  }
+
+  .about-img,
+  .about-info {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(50% - 2rem);
+    flex: 0 0 calc(50% - 2rem);
+    margin-bottom: 0;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+  }
+}
+
+/*# sourceMappingURL=about.component.css.map */

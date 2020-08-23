@@ -1,0 +1,51 @@
+<section class="section featured" id="featured">
+  <div class="title-wrapper">
+    <h2 class="title">
+      {{ admin.username }} <span class="subtitle">Dashboard</span>
+    </h2>
+  </div>
+  <div class="about-resort">
+    <ul>
+      <li>
+        <a #destComp>Destination</a>
+      </li>
+      <li>
+        <a #locaComp>Location</a>
+      </li>
+      <li><a #userComp>User</a></li>
+    </ul>
+  </div>
+  <div class="table-container" *ngIf="destCopDis">
+    <backroads-destination
+      [listDestAndMore]="listSearchDest"
+      (newPage)="onPageChange($event)"
+      (searchName)="inputName($event)"
+      (destIdToDele)="deleteDest($event)"
+      [getLocations]="locations"
+      [getSeasons]="seasons"
+      (destinaToSave)="saveDestination($event)"
+      (destinaToEdit)="editDestination($event)"
+    ></backroads-destination>
+  </div>
+  <div class="table-container" *ngIf="locaCopDis">
+    <backroads-location
+      [listLoca]="locaListAndHeaders"
+      (newPage)="onPageChange($event)"
+      (searchName)="inputNameLoca($event)"
+      (locationIdDel)="deleteLoca($event)"
+      (locaToEdit)="editLocation($event)"
+      (locaToSave)="saveLocation($event)"
+    ></backroads-location>
+  </div>
+  <div class="table-container" *ngIf="userCopDis">
+    <backroads-user
+      [usList]="listUsers"
+      (userIdDel)="deleteUser($event)"
+      (searchName)="inputNameUser($event)"
+      (newPage)="onPageChange($event)"
+    ></backroads-user>
+  </div>
+</section>
+<!-- (destIdToDele)="deleteDest($event)"
+(destinaToSave)="saveDestination($event)"
+(destinaToEdit)="editDestination($event)" -->

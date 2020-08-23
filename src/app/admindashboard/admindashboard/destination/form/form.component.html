@@ -1,0 +1,131 @@
+<form style="margin-top: 10px;">
+  <div class="form-group form-row">
+    <label for="name" class="col-form-label col-sm-2">Name:</label>
+    <input
+      type="text"
+      class="form-control col-sm-10"
+      id="name"
+      name="name"
+      [(ngModel)]="destination.name"
+    />
+  </div>
+  <div class="form-group form-row">
+    <label for="country" class="col-form-label col-sm-2">Country:</label>
+    <input
+      type="text"
+      class="form-control col-sm-10"
+      id="country"
+      name="country"
+      [(ngModel)]="destination.country"
+    />
+  </div>
+  <div class="form-group form-row">
+    <label for="picture" class="col-form-label col-sm-2">Picture:</label>
+    <input
+      type="text"
+      class="form-control col-sm-10"
+      id="picture"
+      name="picture"
+      [(ngModel)]="destination.picture"
+    />
+    <span>Format:"./assets/images/YOURIMG.jpg"</span>
+  </div>
+  <div class="form-group form-row">
+    <label for="from" class="col-form-label col-sm-2">Form:</label>
+    <input
+      ngbDatepicker
+      #dFrom="ngbDatepicker"
+      (click)="dFrom.toggle()"
+      type="text"
+      name="to"
+      class="form-control col-sm-4"
+      id="from"
+      [(ngModel)]="destination.from"
+    />
+    <label for="from" class="col-form-label col-sm-2 text-right">To:</label>
+    <input
+      ngbDatepicker
+      #dTo="ngbDatepicker"
+      (click)="dTo.toggle()"
+      type="text"
+      name="from"
+      class="form-control col-sm-4"
+      id="to"
+      [(ngModel)]="destination.to"
+    />
+  </div>
+  <div class="form-group form-row">
+    <label for="price" class="col-form-label col-sm-2">Price:</label>
+    <input
+      type="number"
+      class="form-control col-sm-10"
+      id="price"
+      name="price"
+      [(ngModel)]="destination.price"
+    />
+  </div>
+  <div class="form-group form-row">
+    <label for="description" class="col-form-label col-sm-2"
+      >Description:</label
+    >
+    <textarea
+      name="description"
+      id="description"
+      class="form-control col-sm-10"
+      [(ngModel)]="destination.description"
+    ></textarea>
+  </div>
+
+  <div class="form-group form-row">
+    <label for="season" class="col-form-label col-sm-2">Season:</label>
+    <select
+      name="season"
+      id="season"
+      class="col-sm-10"
+      [(ngModel)]="destination.season"
+    >
+      <option *ngFor="let season of seas" value="{{ season._id }}"
+        >{{ season.name }}
+        <span
+          *ngIf="forEdit != undefined && season._id == destination.season._id"
+          >(current)</span
+        >
+      </option>
+    </select>
+  </div>
+  <div class="form-group form-row">
+    <label for="location" class="col-form-label col-sm-2">Location:</label>
+    <select
+      name="location"
+      id="location"
+      class="col-sm-10"
+      [(ngModel)]="destination.location"
+    >
+      <option *ngFor="let location of loca" value="{{ location._id }}"
+        >{{ location.name }}
+        <span
+          *ngIf="
+            forEdit != undefined && location._id == destination.location._id
+          "
+          >(current)</span
+        >
+      </option>
+    </select>
+  </div>
+  <button
+    *ngIf="forEdit != undefined"
+    type="submit"
+    class="btn btn-primary float-right"
+    (click)="editDesti()"
+  >
+    Edit
+  </button>
+  <button
+    *ngIf="forEdit == undefined"
+    type="submit"
+    class="btn btn-primary float-right"
+    (click)="saveDestinatination()"
+  >
+    Save
+  </button>
+</form>

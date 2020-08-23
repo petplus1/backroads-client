@@ -1,0 +1,121 @@
+<form [formGroup]="registerForm" style="margin-top: 20px;">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      id="name"
+      formControlName="name"
+    />
+    <div
+      *ngIf="
+        registerForm.controls.name.errors &&
+        (registerForm.controls.name.touched || registerForm.controls.name.dirty)
+      "
+      style="color: red;"
+    >
+      <div *ngIf="registerForm.hasError('required', 'name')">
+        Name is required
+      </div>
+      <div *ngIf="registerForm.hasError('pattern', 'name')">
+        Name is invalid format
+      </div>
+      <div *ngIf="registerForm.hasError('minlength', 'name')">
+        Name must be 3 characters long
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input
+      type="text"
+      name="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+    />
+    <div
+      *ngIf="
+        registerForm.controls.email.errors &&
+        (registerForm.controls.email.touched ||
+          registerForm.controls.email.dirty)
+      "
+      style="color: red;"
+    >
+      <div *ngIf="registerForm.hasError('required', 'email')">
+        Email is required
+      </div>
+      <div *ngIf="registerForm.hasError('email', 'email')">
+        Invalid email form
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="username">Username :</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      formControlName="username"
+      name="username"
+    />
+    <div
+      *ngIf="
+        registerForm.controls.username.errors &&
+        (registerForm.controls.username.touched ||
+          registerForm.controls.username.dirty)
+      "
+      style="color: red;"
+    >
+      <div *ngIf="registerForm.hasError('required', 'username')">
+        Username is required
+      </div>
+      <div *ngIf="registerForm.hasError('pattern', 'username')">
+        Username is invalid format
+      </div>
+      <div *ngIf="registerForm.hasError('minlength', 'username')">
+        Username must be 3 characters long
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password :</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+      name="password"
+    />
+    <div
+      *ngIf="
+        registerForm.controls.password.errors &&
+        (registerForm.controls.password.touched ||
+          registerForm.controls.password.dirty)
+      "
+      style="color: red;"
+    >
+      <div *ngIf="registerForm.hasError('required', 'password')">
+        Password is required
+      </div>
+      <div *ngIf="registerForm.hasError('pattern', 'password')">
+        Password is invalid format
+      </div>
+      <div *ngIf="registerForm.hasError('minlength', 'password')">
+        Password must be 8 characters long
+      </div>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    (click)="saveForm(registerForm)"
+  >
+    Sign Up
+  </button>
+</form>
+<div *ngIf="succesReg" style="color: green;">
+  Succes Registration
+</div>

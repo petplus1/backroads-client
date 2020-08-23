@@ -1,0 +1,54 @@
+.footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.footer-links,
+.footer-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 1.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.footer-link {
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  letter-spacing: 0.25rem;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.footer-link:hover {
+  color: #3fd0d4;
+}
+
+.footer-icon {
+  font-size: 1.9rem;
+  margin-right: 1rem;
+  color: #fff;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.footer-icon:hover {
+  color: #3fd0d4;
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
+}
+
+.copyright {
+  text-transform: capitalize;
+  letter-spacing: 0.25rem;
+}
+/*# sourceMappingURL=footer.component.css.map */

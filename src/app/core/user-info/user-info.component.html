@@ -1,0 +1,56 @@
+<section class="section about" id="about">
+  <div class="title-wrapper">
+    <h2 class="title">Your <span class="subtitle">profile</span></h2>
+  </div>
+  <div class="about-center section-center">
+    <article class="about-info">
+      <h3>Information:</h3>
+      <p>Name: {{ logedUser.name }}</p>
+      <p>Username: {{ logedUser.username }}</p>
+      <p>Email: {{ logedUser.email }}</p>
+      <p>Date of join: {{ logedUser.creationDate | date }}</p>
+    </article>
+    <article class="about-img">
+      <h2>CHANGE NAME:</h2>
+      <form [formGroup]="newNameForm" style="margin-top: 20px;">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            id="name"
+            formControlName="name"
+            style="width: 300px;"
+          />
+          <div
+            *ngIf="
+              newNameForm.controls.name.errors &&
+              (newNameForm.controls.name.touched ||
+                newNameForm.controls.name.dirty)
+            "
+            style="color: red;"
+          >
+            <div *ngIf="newNameForm.hasError('pattern', 'name')">
+              Name is invalid format
+            </div>
+            <div *ngIf="newNameForm.hasError('minlength', 'name')">
+              Name must be 3 characters long
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="newName(newNameForm)"
+        >
+          change
+        </button>
+      </form>
+      <div *ngIf="succesChange" style="color: green;">
+        Succes change
+      </div>
+    </article>
+  </div>
+</section>

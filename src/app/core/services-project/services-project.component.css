@@ -1,0 +1,75 @@
+.service {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.service-icon {
+  background: #3fd0d4;
+  padding: 0.5rem;
+  display: inline-block;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-title {
+  text-transform: uppercase;
+}
+
+.service-text {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.services {
+  background-color: #fff;
+}
+
+@media screen and (min-width: 576px) {
+  .services-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .service {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 1rem);
+            flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .service {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(33.3333% - 1rem);
+            flex: 0 0 calc(33.3333% - 1rem);
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .service {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: left;
+  }
+  .service-icon {
+    -ms-flex-item-align: start;
+        -ms-grid-row-align: start;
+        align-self: start;
+  }
+  .service-info {
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .service-text {
+    width: 90%;
+    margin: 0;
+  }
+}
+/*# sourceMappingURL=services-project.component.css.map */
